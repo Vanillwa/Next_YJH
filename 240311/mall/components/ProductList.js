@@ -1,14 +1,17 @@
 import Link from "next/link";
 import styles from "@/styles/ProductList.module.css";
+import Image from "next/image";
 
-export const ProductList = ({products = []}) => {
+export const ProductList = ({ products = [] }) => {
   return (
     <ul className={styles.productList}>
-      {products.map((product) => {
+      {products.map((product, i) => {
         return (
           <li key={product.id}>
             <Link className={styles.product} href={`/product/${product.id}`}>
-              <img src={product.imgUrl} alt={product.name} width="240px"></img>
+              <div className={styles.imageWrapper}>
+                <Image src={product.imgUrl} alt={product.name} fill></Image>
+              </div>
               <span>{product.name}</span>
               <br />
               {product.price}원

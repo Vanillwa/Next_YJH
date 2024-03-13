@@ -1,8 +1,9 @@
-import { ProductList } from '@/components/ProductList';
-import SearchForm from '@/components/SearchForm';
-import styles from '@/styles/home.module.css'
-import { useEffect, useState } from 'react';
-import { getProducts } from './api/api';
+import { ProductList } from "@/components/ProductList";
+import SearchForm from "@/components/SearchForm";
+import styles from "@/styles/Home.module.css";
+import { useEffect, useState } from "react";
+import { getProducts } from "./api/api";
+import Head from "next/head";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -12,14 +13,19 @@ export default function Home() {
     setProducts(data);
   };
 
-  useEffect(()=>{
-    fetchProductsData()
-  }, [])
+  useEffect(() => {
+    fetchProductsData();
+  }, []);
 
   return (
     <>
-      <h1 className={styles.flower}>Next.js</h1>
-      <SearchForm></SearchForm>
+      <Head>
+        <title>Hoodies Mall</title>
+      </Head>
+      <h1 className={styles.title}>Hoodies</h1>
+      <div className={styles.searchForm}>
+        <SearchForm></SearchForm>
+      </div>
       <ProductList products={products}></ProductList>
     </>
   );

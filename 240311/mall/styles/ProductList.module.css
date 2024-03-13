@@ -1,5 +1,5 @@
 .productList { display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; padding: 0; gap: 24px; } 
 
-.product { display: flex; flex-flow: column; align-items: center; position: relative; text-decoration: none; }
+.product { display: flex; flex-flow: column; align-items: center; position: relative; text-decoration: none; } 
 
-/* img{width: 300px;} */
+.imageWrapper { position: relative; border-radius: 10px; width: 100%; aspect-ratio: 1/1; } 

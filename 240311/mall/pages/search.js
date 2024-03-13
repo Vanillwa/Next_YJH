@@ -3,6 +3,7 @@ import SearchForm from "@/components/SearchForm";
 import { useRouter } from "next/router";
 import { getProductsByKeyword } from "./api/api";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function Search() {
   const router = useRouter();
@@ -20,9 +21,11 @@ export default function Search() {
 
   return (
     <>
+    <Head>
+        <title>{keyword} 검색결과</title>
+      </Head>
       <h1>Search</h1>
       <SearchForm initialKeyword={keyword}></SearchForm>
-      <h2>{keyword} 검색결과</h2>
       <ProductList products={products}></ProductList>
     </>
   );
